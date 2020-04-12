@@ -14,7 +14,8 @@
     "./node_modules/mf-cv-tcc/src/app/carrinho/carrinho.component.ts",
     "./node_modules/mf-pd-tcc/src/app/app.module.ts",
     "./node_modules/mf-pd-tcc/src/app/produto/produto.component.ts",
-    "./node_modules/mf-pd-tcc/src/app/produto/service/produto.service.ts"
+    "./node_modules/mf-pd-tcc/src/app/produto/service/produto.service.ts",
+    "./node_modules/mf-cv-tcc/src/app/carrinho/models/produto-list.ts"
   ],
   "exclude": [
     "src/test.ts",

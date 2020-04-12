@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from './service/usuario.service';
 
 @Component({
@@ -32,8 +32,10 @@ export class AppComponent implements OnInit {
       .subscribe(res => {
         if (res && res[0]) {
           console.log('user', JSON.stringify(res));
-          
+
           localStorage.setItem('user', JSON.stringify(res));
+          this.addUserToProd(JSON.stringify(res));
+          this.loginForm.reset();
         } else {
           alert('Erro, usuário não encontrado na pesquisa, por favor realize o cadastro no sistema.')
           console.log('2');
@@ -67,10 +69,23 @@ export class AppComponent implements OnInit {
     this.usuarioService.post(this.cadastroForm.value)
       .subscribe(res => {
         alert('Usuario Cadastroado com sucesso!')
+        this.cadastroForm.reset();
       }, err => {
         alert('Erro em cadastrar o usuário!')
         console.log(err)
       });
+  }
+
+  public addUserToProd(user): void {
+    if (!user) {
+      console.log('erro ao passar usuário');
+    } else {
+      const prodView = document.querySelector('product-view');
+      if (prodView != null) {
+        prodView['user'] = user;
+      }
+
+    }
   }
 
 }
