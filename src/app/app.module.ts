@@ -1,12 +1,9 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CarrinhoViewModule } from 'mf-cv-tcc/src/app/app.module';
 import { ProdutoViewModule } from 'mf-pd-tcc/src/app/app.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,8 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     ProdutoViewModule,
     CarrinhoViewModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
